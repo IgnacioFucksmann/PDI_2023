@@ -1,0 +1,23 @@
+def bright(a,b):
+    lower=a
+    upper=b
+    seg = sitk.ConnectedThreshold(imseg, seedList= seedList, lower= lower , upper= upper )
+
+    fig, ax = plt.subplots(nrows=4, ncols=3, figsize=(20,20)) 
+    ax[0,0].imshow(im,cmap="gray")
+    ax[0,1].imshow(sitk.GetArrayFromImage(seg),cmap="gray")
+    ax[0,2].imshow(dilRes,cmap="gray")
+
+    ax[1,0].imshow(resBI,cmap="gray")
+    ax[1,1].imshow(homBI,cmap="gray")
+    ax[1,2].imshow(dilBI,cmap="gray")
+
+    ax[2,0].imshow(resBE,cmap="gray")
+    ax[2,1].imshow(homBE,cmap="gray")
+    ax[2,2].imshow(dilBE,cmap="gray")
+
+    ax[3,0].imshow(resBT,cmap="gray")
+    ax[3,1].imshow(homBT,cmap="gray")
+    ax[3,2].imshow(dilBT,cmap="gray")
+    plt.show()
+interact(bright,a=widgets.IntSlider(min=0,max=255),b=widgets.IntSlider(min=0,max=255))
