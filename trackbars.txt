@@ -1,3 +1,6 @@
+import ipywidgets as widgets
+from ipywidgets import interact
+
 def bright(a,b):
     lower=a
     upper=b
